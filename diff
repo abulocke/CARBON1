@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mainengine · Carbon Garage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="top-bar">
+
+      <div class="badge" id="reminderBadge" hidden>
+        Fällige Restzahlungen: <span id="reminderCount">0</span>
+      </div>
+
+      <div class="shop-switch">
+        <button class="shop-button active" data-shop="mainengine">Mainengine · Sharjah</button>
+        <button class="shop-button" data-shop="carbonGarage">Carbon Garage · Dubai</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" data-tab="formTab">Neu</button>
+        <button class="tab-button" data-tab="listTab">Übersicht</button>
+        <button class="tab-button" data-tab="summaryTab">Auswertung</button>
+      </div>
+
+    </header>
+
+    <main class="content">
+
+      <!-- FORM -->
+      <section id="formTab" class="tab active">
+        <form id="entryForm" class="entry-form">
+
+          <div class="field-row">
+            <label>Datum</label>
+            <input type="date" id="date" required />
+          </div>
+
+          <div class="field-row">
+            <label>Position</label>
+            <input type="text" id="position" />
+          </div>
+
+          <div class="field-row">
+            <label>Kunde</label>
+            <input type="text" id="customer" />
+          </div>
+
+          <div class="field-row">
+            <label>Einkauf</label>
+            <input type="number" id="purchasePrice" step="0.01" />
+          </div>
+
+          <div class="field-row">
+            <label>Verkauf</label>
+            <input type="number" id="salePrice" step="0.01" />
+          </div>
+
+          <div class="field-row">
+            <label>Ausgaben</label>
+            <input type="number" id="expenses" step="0.01" />
+          </div>
+
+          <div class="field-row">
+            <label>Gewinn</label>
+            <input type="number" id="profit" step="0.01" />
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="field-row">
+            <label>Anzahlung</label>
+            <input type="number" id="deposit" step="0.01" />
+          </div>
+
+          <div class="field-row">
+            <label>Restzahlung fällig</label>
+            <input type="date" id="dueDate" />
+          </div>
+
+          <div class="field-row">
+            <label>Kommentar</label>
+            <textarea id="comment"></textarea>
+          </div>
+
+          <button class="primary-btn">Speichern</button>
+        </form>
+      </section>
+
+      <!-- LISTE -->
+      <section id="listTab" class="tab">
+        <ul id="entryList" class="entry-list"></ul>
+      </section>
+
+      <!-- AUSWERTUNG -->
+      <section id="summaryTab" class="tab">
+        <div class="summary-container">
+
+          <div class="summary-section">
+            <div class="summary-title">Aktiver Laden</div>
+            <div id="summaryActiveShopName"></div>
+            <div id="sumProfitActive"></div>
+          </div>
+
+          <div class="summary-section">
+            <div class="summary-title">Alle Läden</div>
+            <div id="sumProfitAll"></div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
